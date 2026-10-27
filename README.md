@@ -1,14 +1,14 @@
-\# Kubernetes Lab on Windows Using kind
+﻿# Kubernetes Lab on Windows Using kind
 
 
 
-\## Aim
+## Aim
 
 To create a local Kubernetes cluster on Windows using Docker Desktop and kind, deploy an NGINX application, scale the deployment, and demonstrate Kubernetes self-healing.
 
 
 
-\## Tools and Technologies
+## Tools and Technologies
 
 \- Windows PowerShell
 
@@ -24,7 +24,7 @@ To create a local Kubernetes cluster on Windows using Docker Desktop and kind, d
 
 
 
-\## Cluster Architecture
+## Cluster Architecture
 
 The Kubernetes cluster contains:
 
@@ -56,11 +56,11 @@ nodes:
 
 
 
-\## Procedure
+## Procedure
 
 
 
-\### 1. Verify the tools
+### 1. Verify the tools
 
 ```powershell
 
@@ -76,7 +76,7 @@ kind version
 
 
 
-\### 2. Create the Kubernetes cluster
+### 2. Create the Kubernetes cluster
 
 ```powershell
 
@@ -90,7 +90,7 @@ kubectl get nodes
 
 
 
-\### 3. Verify the cluster
+### 3. Verify the cluster
 
 ```powershell
 
@@ -106,7 +106,7 @@ All three Kubernetes nodes reached the `Ready` state.
 
 
 
-\### 4. Deploy NGINX with three replicas
+### 4. Deploy NGINX with three replicas
 
 ```powershell
 
@@ -124,7 +124,7 @@ The deployment reached `3/3` ready replicas.
 
 
 
-\### 5. Scale the deployment to six replicas
+### 5. Scale the deployment to six replicas
 
 ```powershell
 
@@ -140,7 +140,7 @@ All six NGINX Pods reached the `Running` state.
 
 
 
-\### 6. Demonstrate self-healing
+### 6. Demonstrate self-healing
 
 Delete one Pod using its actual name:
 
@@ -158,7 +158,7 @@ Kubernetes automatically created a replacement Pod to maintain the desired repli
 
 
 
-\## Results
+## Results
 
 \- Created a Kubernetes cluster with one control-plane and two worker nodes.
 
@@ -174,13 +174,13 @@ Kubernetes automatically created a replacement Pod to maintain the desired repli
 
 
 
-\## Conclusion
+## Conclusion
 
 The Kubernetes lab was completed successfully. The experiment demonstrated cluster creation using kind, application deployment, horizontal scaling of replicas, and Kubernetes self-healing.
 
 
 
-\## Cleanup
+## Cleanup
 
 To delete the local kind cluster after the lab, run:
 
@@ -193,4 +193,58 @@ kind delete cluster
 
 
 Run the cleanup command only when the cluster is no longer needed.
+
+## Screenshots
+
+
+
+### 1. Kubernetes Cluster Nodes
+
+
+
+![Kubernetes cluster nodes](screenshots/cluster-nodes.png)
+
+
+
+### 2. NGINX Deployment with Six Pods
+
+
+
+![NGINX deployment with six pods](screenshots/nginx-six-pods.png)
+
+
+
+### 3. Kubernetes Self-Healing
+
+
+
+![Kubernetes self-healing](screenshots/self-healing.png)
+
+
+
+## Graph: Deployment Scaling and Self-Healing
+
+
+
+The deployment was scaled from 3 replicas to 6 replicas. After a pod was deleted, Kubernetes created a replacement pod to maintain the desired replica count.
+
+
+
+```mermaid
+
+xychart-beta
+
+&#x20;   title "NGINX Replica Count"
+
+&#x20;   x-axis ["Initial", "Scaled", "After Self-Healing"]
+
+&#x20;   y-axis "Replicas" 0 --> 6
+
+&#x20;   bar [3, 6, 6]
+
+```
+
+
+
+
 
