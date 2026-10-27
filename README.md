@@ -153,31 +153,7 @@ kubectl get pods
 ```
 
 
-
 Kubernetes automatically created a replacement Pod to maintain the desired replica count of six.
-
-
-
-## Results
-
-\- Created a Kubernetes cluster with one control-plane and two worker nodes.
-
-\- Verified that all three nodes were `Ready`.
-
-\- Deployed NGINX with three replicas.
-
-\- Scaled the deployment from three to six replicas.
-
-\- Deleted one Pod and verified that Kubernetes created a replacement.
-
-\- Confirmed that six NGINX Pods were running after self-healing.
-
-
-
-## Conclusion
-
-The Kubernetes lab was completed successfully. The experiment demonstrated cluster creation using kind, application deployment, horizontal scaling of replicas, and Kubernetes self-healing.
-
 
 
 ## Cleanup
@@ -244,6 +220,27 @@ xychart-beta
 
 ```
 
+## Results
+
+- Successfully created a local Kubernetes cluster using kind on Windows.
+- Verified that the control-plane node and both worker nodes were in the Ready state.
+- Deployed the NGINX application using a Kubernetes Deployment.
+- Scaled the NGINX Deployment from 3 replicas to 6 replicas.
+- Deleted a running Pod and verified that Kubernetes automatically created a replacement Pod.
+- Confirmed that six Pods were running after self-healing.
+- Captured screenshots of the cluster nodes, six NGINX Pods, and self-healing process.
+
+## Conclusion
+
+The experiment demonstrated the basic features of Kubernetes using kind on Windows. The NGINX application was deployed and scaled successfully, and Kubernetes self-healing was verified by deleting a Pod and observing its replacement. The experiment provided practical experience with cluster management, replica scaling, and automatic recovery.
+
+## Author
+
+**Name:** Vandana
+
+**GitHub:** [Vandana-45](https://github.com/Vandana-45)
+
+**Repository:** [Kubernetes Lab on Windows](https://github.com/Vandana-45/Kubernetes-Lab-on-Windows)
 
 
 
